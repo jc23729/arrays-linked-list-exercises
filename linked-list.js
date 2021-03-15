@@ -63,6 +63,7 @@ _get(idx) {
   /** pop(): return & remove last item. */
 
   pop() {
+    return this.removeAt(0);
 
   }
 
