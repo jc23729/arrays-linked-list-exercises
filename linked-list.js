@@ -48,7 +48,16 @@ _get(idx) {
   /** unshift(val): add new value to start of list. */
 
   unshift(val) {
+    let newNode = new Node(val);
 
+    if (this.head === null){
+      this.head = newNode;
+    }else{
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    if (this.length === 0)this.tail = this.head;
+    this.length += 1;
   }
 
   /** pop(): return & remove last item. */
