@@ -63,19 +63,22 @@ _get(idx) {
   /** pop(): return & remove last item. */
 
   pop() {
-    return this.removeAt(0);
-
+    return this.removeAt(this.length - 1);
   }
 
+
   /** shift(): return & remove first item. */
-
   shift() {
-
+    return this.removeAt(0);
   }
 
   /** getAt(idx): get val at idx. */
 
   getAt(idx) {
+    if (idx >= this.length || idx < 0){
+      throw new Error("Invalid index");
+    }
+    return this.getAt(idx).val;
 
   }
 
