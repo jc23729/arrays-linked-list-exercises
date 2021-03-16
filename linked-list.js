@@ -96,10 +96,22 @@ _get(idx) {
 
   insertAt(idx, val) {
     if (idx >= this.length || idx < 0){
-      
+      throw new Error("Invalid index");
     }
 
+    if (idx === 0) return this.unshift(val);
+    if (idx === this.length) return this.push(val);
+
+    // get the one before it
+    let prev = this._get(idx - 1);
+
+    let newNode = new Node(val);
+    newNode.next = prev.next;
+    prev.next = newNode;
+
+    this.length += 1;
   }
+
 
   /** removeAt(idx): return & remove item at idx, */
 
